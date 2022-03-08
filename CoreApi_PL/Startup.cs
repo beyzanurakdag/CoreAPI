@@ -1,3 +1,5 @@
+using CoreApi_BLL.Implementations;
+using CoreApi_BLL.Interfaces;
 using CoreApi_DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,7 @@ namespace CoreApi_PL
             {
                 options.UseSqlServer("server=DESKTOP-TUMHS1A; database=AssignmentDB;Integrated security=True");
             });
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
